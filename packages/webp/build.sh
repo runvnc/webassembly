@@ -19,8 +19,8 @@ test -n "$SKIP_LIBWEBP" || (
   echo "libwebp"
   echo ""
   echo "======="
-  apt-get update
-  apt-get install -qqy autoconf libtool libpng-dev pkg-config
+#  apt-get update
+#  apt-get install -qqy autoconf libtool libpng-dev pkg-config
   cd node_modules/libwebp
   autoreconf -fiv
   rm -rf build || true

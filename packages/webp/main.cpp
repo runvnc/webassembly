@@ -111,6 +111,8 @@ val encode(std::string img_in, int _width, int _height, int _channels, WebPConfi
   }
   free_buffer();
 
+  buffer = NULL;
+
   buffer = writer.mem;
   length = writer.size;
 
