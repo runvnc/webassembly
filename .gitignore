@@ -1,5 +1,5 @@
-packages/**/wasm_*.js
-packages/**/*.wasm
+#packages/**/wasm_*.js
+#packages/**/*.wasm
 
 
 # Created by https://www.gitignore.io/api/node,vscode
