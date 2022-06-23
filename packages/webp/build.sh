@@ -57,6 +57,7 @@ echo "======="
     -s ALLOW_MEMORY_GROWTH=1 \
     -s MODULARIZE=1 \
     -s NODEJS_CATCH_REJECTION=0 \
+    -s NODEJS_CATCH_EXIT=0 \
     -s 'EXPORT_NAME="wasm_webp"' \
     -I node_modules/libwebp \
     --std=c++11 \
