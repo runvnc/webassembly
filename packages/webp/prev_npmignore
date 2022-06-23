@@ -1,3 +1,5 @@
+!wasm_*
+
 tests
 *.sh
 *.c
