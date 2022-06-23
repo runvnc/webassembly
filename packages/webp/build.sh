@@ -7,6 +7,8 @@ export LDFLAGS="${OPTIMIZE}"
 export CFLAGS="${OPTIMIZE}"
 export CPPFLAGS="${OPTIMIZE}"
 
+SKIP_LIBWEBP=1
+
 echo "================================================================================"
 echo "=====                                                                      ====="
 echo "=====                    Compiling @saschazar/wasm-webp                    ====="      
@@ -54,6 +56,7 @@ echo "======="
     ${OPTIMIZE} \
     -s ALLOW_MEMORY_GROWTH=1 \
     -s MODULARIZE=1 \
+    -s NODEJS_CATCH_REJECTION=0 \
     -s 'EXPORT_NAME="wasm_webp"' \
     -I node_modules/libwebp \
     --std=c++11 \

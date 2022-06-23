@@ -17,7 +17,7 @@ export interface WebPModule extends EmscriptenModule {
   WebPImageHint: WebPImageHint;
   free(): void;
   dimensions(): Dimensions;
-  decode(buffer: BufferSource, length: number, alpha: boolean): Uint8ClampedArray;
+  decode(buffer: BufferSource, length: number, alpha: boolean): BufferSource;
   encode(
     buffer: BufferSource,
     width: number,

@@ -10,8 +10,6 @@
 
 using namespace emscripten;
 
-thread_local const val Uint8ClampedArray = val::global("Uint8ClampedArray");
-
 uint8_t *buffer;
 
 int width;
@@ -31,7 +29,6 @@ struct Dimensions
 void free_buffer()
 {
   WebPFree(buffer);
-  printf("Freed buffer!\n");
   buffer = NULL;
 }
 
@@ -47,31 +44,41 @@ val dimensions()
 
 val decode(std::string img_in, size_t _length, bool alpha)
 {
-  printf("WEBP Decode (runvnc)\n");
+  printf("1:44 AM\n");
+  printf("1\n");
   if (buffer != NULL)
   {
-    WebPFree(buffer);
+    printf("2\n");
+    free_buffer();
+    printf("3\n");
   }
   uint8_t *decoded;
+  printf("4\n");
 
   uint8_t *inpbuffer = (uint8_t *)img_in.c_str();
+  printf("5\n");
   length = _length;
   channels = alpha ? 4 : 3;
 
   if (alpha)
   {
+    printf("6\n");
     decoded = WebPDecodeRGBA(inpbuffer, length, &width, &height);
   }
   else
   {
     decoded = WebPDecodeRGB(inpbuffer, length, &width, &height);
   }
+  printf("7\n");
+  //delete img_in;
 
   //free_buffer();
+  printf("8\n");
   buffer = decoded;
   row_stride = width * channels;
   length = height * row_stride;
-  return Uint8ClampedArray.new_( (typed_memory_view(length, buffer)) );
+  printf("9\n");
+  return val(typed_memory_view(length, buffer));
 }
 
 val encode(std::string img_in, int _width, int _height, int _channels, WebPConfig config)

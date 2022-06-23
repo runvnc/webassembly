@@ -1,5 +1,5 @@
 {
-  "name": "@saschazar/wasm-webp",
+  "name": "@runvnc/wasm-webp",
   "version": "3.0.1",
   "description": "Encodes and decodes WebP images using WebAssembly",
   "keywords": [
