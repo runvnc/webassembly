@@ -15,13 +15,16 @@
     "web worker"
   ],
   "main": "wasm_webp.js",
-  "repository": "https://github.com/runvnc/webassembly",
+  "repository": "https://github.com/saschazar21/webassembly",
   "author": "Sascha Zarhuber <saschazar21@yahoo.de>",
   "license": "MIT",
   "private": false,
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "access": "public"
+  },
+  "scripts": {
+    "build": "napa && docker run --rm -v $(pwd):/src -e SKIP_LIBWEBP=$SKIP_LIBWEBP emscripten/emsdk:latest ./build.sh"
   },
   "napa": {
     "libwebp": "webmproject/libwebp#v1.1.0"
